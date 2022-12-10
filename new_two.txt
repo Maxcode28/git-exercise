@@ -1,3 +1,4 @@
 Second new file 
 Some changes
 again changes
+merge conflict
