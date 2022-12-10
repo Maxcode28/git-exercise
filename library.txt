@@ -1,0 +1,219 @@
+usage: git init [-q | --quiet] [--bare] [--template=<template-directory>] [--shared[=<permissions>]] [<directory>]
+
+    --template <template-directory>
+                          directory from which templates will be used
+    --bare                create a bare repository
+    --shared[=<permissions>]
+                          specify that the git repository is to be shared amongst several users
+    -q, --quiet           be quiet
+    --separate-git-dir <gitdir>
+                          separate git dir from working tree
+    -b, --initial-branch <name>
+                          override the name of the initial branch
+    --object-format <hash>
+                          specify the hash algorithm to use
+
+
+usage: git status [<options>] [--] <pathspec>...
+
+    -v, --verbose         be verbose
+    -s, --short           show status concisely
+    -b, --branch          show branch information
+    --show-stash          show stash information
+    --ahead-behind        compute full ahead/behind values
+    --porcelain[=<version>]
+                          machine-readable output
+    --long                show status in long format (default)
+    -z, --null            terminate entries with NUL
+    -u, --untracked-files[=<mode>]
+                          show untracked files, optional modes: all, normal, no. (Default: all)
+    --ignored[=<mode>]    show ignored files, optional modes: traditional, matching, no. (Default: traditional)
+    --ignore-submodules[=<when>]
+                          ignore changes to submodules, optional when: all, dirty, untracked. (Default: all)
+    --column[=<style>]    list untracked files in columns
+    --no-renames          do not detect renames
+    -M, --find-renames[=<n>]
+                          detect renames, optionally set similarity index
+    --show-ignored-directory
+                          (DEPRECATED: use --ignore=matching instead) Only show directories that match an ignore pattern name.
+    --no-lock-index       (DEPRECATED: use `git --no-optional-locks status` instead) Do not lock the index
+
+usage: git add [<options>] [--] <pathspec>...
+
+    -n, --dry-run         dry run
+    -v, --verbose         be verbose
+
+    -i, --interactive     interactive picking
+    -p, --patch           select hunks interactively
+    -e, --edit            edit current diff and apply
+    -f, --force           allow adding otherwise ignored files
+    -u, --update          update tracked files
+    --renormalize         renormalize EOL of tracked files (implies -u)
+    -N, --intent-to-add   record only the fact that the path will be added later
+    -A, --all             add changes from all tracked and untracked files
+    --ignore-removal      ignore paths removed in the working tree (same as --no-all)
+    --refresh             don't add, only refresh the index
+    --ignore-errors       just skip files which cannot be added because of errors
+    --ignore-missing      check if - even missing - files are ignored in dry run
+    --sparse              allow updating entries outside of the sparse-checkout cone
+    --chmod (+|-)x        override the executable bit of the listed files
+    --pathspec-from-file <file>
+                          read pathspec from file
+    --pathspec-file-nul   with --pathspec-from-file, pathspec elements are separated with NUL character
+
+
+usage: git commit [<options>] [--] <pathspec>...
+
+    -q, --quiet           suppress summary after successful commit
+    -v, --verbose         show diff in commit message template
+
+Commit message options
+    -F, --file <file>     read message from file
+    --author <author>     override author for commit
+    --date <date>         override date for commit
+    -m, --message <message>
+                          commit message
+    -c, --reedit-message <commit>
+                          reuse and edit message from specified commit
+    -C, --reuse-message <commit>
+                          reuse message from specified commit
+    --fixup [(amend|reword):]commit
+                          use autosquash formatted message to fixup or amend/reword specified commit
+    --squash <commit>     use autosquash formatted message to squash specified commit
+    --reset-author        the commit is authored by me now (used with -C/-c/--amend)
+    --trailer <trailer>   add custom trailer(s)
+    -s, --signoff         add a Signed-off-by trailer
+    -t, --template <file>
+                          use specified template file
+    -e, --edit            force edit of commit
+    --cleanup <mode>      how to strip spaces and #comments from message
+    --status              include status in commit message template
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+Commit contents options
+    -a, --all             commit all changed files
+    -i, --include         add specified files to index for commit
+    --interactive         interactively add files
+    -p, --patch           interactively add changes
+    -o, --only            commit only specified files
+    -n, --no-verify       bypass pre-commit and commit-msg hooks
+    --dry-run             show what would be committed
+    --short               show status concisely
+    --branch              show branch information
+    --ahead-behind        compute full ahead/behind values
+    --porcelain           machine-readable output
+    --long                show status in long format (default)
+    -z, --null            terminate entries with NUL
+    --amend               amend previous commit
+    --no-post-rewrite     bypass post-rewrite hook
+    -u, --untracked-files[=<mode>]
+                          show untracked files, optional modes: all, normal, no. (Default: all)
+    --pathspec-from-file <file>
+                          read pathspec from file
+    --pathspec-file-nul   with --pathspec-from-file, pathspec elements are separated with NUL character
+
+usage: git restore [<options>] [--source=<branch>] <file>...
+
+    -s, --source <tree-ish>
+                          which tree-ish to checkout from
+    -S, --staged          restore the index
+    -W, --worktree        restore the working tree (default)
+    --ignore-unmerged     ignore unmerged entries
+    --overlay             use overlay mode
+    -q, --quiet           suppress progress reporting
+    --recurse-submodules[=<checkout>]
+                          control recursive updating of submodules
+    --progress            force progress reporting
+    -m, --merge           perform a 3-way merge with the new branch
+    --conflict <style>    conflict style (merge or diff3)
+    -2, --ours            checkout our version for unmerged files
+    -3, --theirs          checkout their version for unmerged files
+    -p, --patch           select hunks interactively
+    --ignore-skip-worktree-bits
+                          do not limit pathspecs to sparse entries only
+    --pathspec-from-file <file>
+                          read pathspec from file
+    --pathspec-file-nul   with --pathspec-from-file, pathspec elements are separated with NUL character
+
+usage: git diff [<options>] [<commit>] [--] [<path>...]
+   or: git diff [<options>] --cached [--merge-base] [<commit>] [--] [<path>...]
+   or: git diff [<options>] [--merge-base] <commit> [<commit>...] <commit> [--] [<path>...]
+   or: git diff [<options>] <commit>...<commit>] [--] [<path>...]
+   or: git diff [<options>] <blob> <blob>]
+   or: git diff [<options>] --no-index [--] <path> <path>]
+
+common diff options:
+  -z            output diff-raw with lines terminated with NUL.
+  -p            output patch format.
+  -u            synonym for -p.
+  --patch-with-raw
+                output both a patch and the diff-raw format.
+  --stat        show diffstat instead of patch.
+  --numstat     show numeric diffstat instead of patch.
+  --patch-with-stat
+                output a patch and prepend its diffstat.
+  --name-only   show only names of changed files.
+  --name-status show names and status of changed files.
+  --full-index  show full object name on index lines.
+  --abbrev=<n>  abbreviate object names in diff-tree header and diff-raw.
+  -R            swap input file pairs.
+  -B            detect complete rewrites.
+:
+usage: git diff [<options>] [<commit>] [--] [<path>...]
+   or: git diff [<options>] --cached [--merge-base] [<commit>] [--] [<path>...]
+   or: git diff [<options>] [--merge-base] <commit> [<commit>...] <commit> [--] [<path>...]
+   or: git diff [<options>] <commit>...<commit>] [--] [<path>...]
+   or: git diff [<options>] <blob> <blob>]
+   or: git diff [<options>] --no-index [--] <path> <path>]
+
+common diff options:
+  -z            output diff-raw with lines terminated with NUL.
+  -p            output patch format.
+  -u            synonym for -p.
+  --patch-with-raw
+                output both a patch and the diff-raw format.
+  --stat        show diffstat instead of patch.
+  --numstat     show numeric diffstat instead of patch.
+  --patch-with-stat
+                output a patch and prepend its diffstat.
+  --name-only   show only names of changed files.
+  --name-status show names and status of changed files.
+  --full-index  show full object name on index lines.
+  --abbrev=<n>  abbreviate object names in diff-tree header and diff-raw.
+  -R            swap input file pairs.
+  -B            detect complete rewrites.
+:
+usage: git diff [<options>] [<commit>] [--] [<path>...]
+   or: git diff [<options>] --cached [--merge-base] [<commit>] [--] [<path>...]
+   or: git diff [<options>] [--merge-base] <commit> [<commit>...] <commit> [--] [<path>...]
+   or: git diff [<options>] <commit>...<commit>] [--] [<path>...]
+   or: git diff [<options>] <blob> <blob>]
+   or: git diff [<options>] --no-index [--] <path> <path>]
+
+common diff options:
+  -z            output diff-raw with lines terminated with NUL.
+  -p            output patch format.
+  -u            synonym for -p.
+  --patch-with-raw
+                output both a patch and the diff-raw format.
+  --stat        show diffstat instead of patch.
+  --numstat     show numeric diffstat instead of patch.
+  --patch-with-stat
+                output a patch and prepend its diffstat.
+  --name-only   show only names of changed files.
+  --name-status show names and status of changed files.
+  --full-index  show full object name on index lines.
+  --abbrev=<n>  abbreviate object names in diff-tree header and diff-raw.
+  -R            swap input file pairs.
+  -B            detect complete rewrites.
+  -M            detect renames.
+  -C            detect copies.
+  --find-copies-harder
+                try unchanged files as candidate for copy detection.
+  -l<n>         limit rename attempts up to <n> paths.
+  -O<file>      reorder diffs according to the <file>.
+  -S<string>    find filepair whose only one side contains the string.
+  --pickaxe-all
+                show all files diff when -S is used and hit is found.
+  -a  --text    treat all files as text.
