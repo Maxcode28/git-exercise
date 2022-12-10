@@ -1,7 +1,8 @@
 Question A
-
+7,850,200 liter
 Question B
-
+313,092 Einwohner
 Question C
-
+29%
 Question D
+41%
