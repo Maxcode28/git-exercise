@@ -1,7 +1,8 @@
 Question A
-
+1000000 Liter
 Question B
-
+350000 Einwohner
 Question C
-
+30%
 Question D
+80%
